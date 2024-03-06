@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Interface</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chat-container {
+      max-width: 600px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .chat-area {
+      height: 300px;
+      overflow-y: scroll;
+      padding: 10px;
+    }
+
+    .message {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .frnd_message {
+      background-color: #f2f2f2;
+      text-align: left;
+    }
+
+    .my_message {
+      background-color: #4CAF50;
+      color: white;
+      text-align: right;
+    }
+
+    .message p {
+      margin: 0;
+    }
+
+    .message span {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .message .m-chet {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+    }
+
+    #message-input {
+      width: calc(100% - 70px);
+      padding: 10px;
+      border: none;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+
+    #custom-send-button {
+      width: 60px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      outline: none;
+    }
+
+    #custom-send-button:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div id="message" class="chat-area">
+       <div class="message frnd_message">
+         <p class="m-chet">huk vvj ggfv <br><span>12:30</span></p>
+       </div>
+       <div class="message my_massage">
+         <p class="m-chet">hi <br><span>12:30</span></p>
+       </div>
+       <div class="message frnd_message">
+         <p class="m-chet">hi <br><span>12:30</span></p>
+       </div>
+       <div class="message my_massage">
+         <p class="m-chet">hi <br><span>12:30</span></p>
+       </div>
+       <div class="message frnd_message">
+         <p class="m-chet">huk vvj ggfv <br><span>12:30</span></p>
+       </div>
+  </div>
+  <input type="text" id="message-input" placeholder="Type a message...">
+  <button id="custom-send-button">Send</button>
+</div>
+
+<script>
+  // JavaScript code
+  document.addEventListener("DOMContentLoaded", function() {
+    const chatArea = document.getElementById("message");
+    const messageInput = document.getElementById("message-input");
+    const sendButton = document.getElementById("custom-send-button");
+
+    sendButton.addEventListener("click", function() {
+      const messageText = messageInput.value.trim();
+
+      if (messageText !== "") {
+        var messageElement = document.createElement("div");
+        var messageElement2 = document.createElement("p");
+        messageElement2.classList.add("m-chet");
+
+        if (messageText.toLowerCase().includes(".")) {
+          messageElement.classList.add("message", "frnd_message");
+          messageElement2.innerHTML = `<p>${messageText}<br><span>${getTime()}</span></p>`;
+        } else {
+          messageElement.classList.add("message", "my_message");
+          messageElement2.innerHTML = `<p>${messageText}<br><span>${getTime()}</span></p>`;
+        }
+
+        chatArea.appendChild(messageElement);
+        messageElement.appendChild(messageElement2);
+        chatArea.scrollTop = chatArea.scrollHeight; // Scroll to bottom
+        messageInput.value = "";
+      }
+    });
+  });
+
+  function getTime() {
+    var date = new Date();
+    var hours = date.getHours().toString().padStart(2, '0');
+    var minutes = date.getMinutes().toString().padStart(2, '0');
+    return hours + ':' + minutes;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+
+    <script>
+        var container = document.getElementById('container');
+        var refresh = document.getElementById('refresh');
+        var startY, endY;
+
+        container.addEventListener('touchstart', function (e) {
+            startY = e.touches[0].clientY;
+        });
+
+        container.addEventListener('touchmove', function (e) {
+            endY = e.touches[0].clientY;
+            if (endY > startY) {
+                refresh.style.top = (endY - startY - 50) + 'px';
+            }
+        });
+
+        container.addEventListener('touchend', function (e) {
+            if (endY > startY + 50) {
+                refresh.style.top = '0px';
+                setTimeout(function () {
+                    refresh.style.top = '-50px';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
