@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>profi</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<style type="text/css" media="all">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Arial, Helvetica, sans-serif;
+
+		}
+
+		.container_nav {
+			/*
+  max-width: 400px;
+  padding: 0px 20px ;
+  display: flex;
+  justify-content: space-between ;
+  */
+
+			background-color: #ffffff;
+			padding: 10px 20px;
+			border-bottom: 1px solid #efefef;
+			/* Lighter border */
+			top: 0;
+			left: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			/* Add shadow to taskbar */
+
+		}
+
+		.logo {
+			height: auto;
+			width: 80%;
+			position: relative;
+
+		}
+
+		.logo .instaLogo {
+			margin-top: -28px;
+			text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+			position: absolute;
+
+		}
+
+		#coment {
+			position: relative;
+			color: #333;
+			text-decoration: none;
+			font-size: 20px;
+			transition: .3s;
+			font-size: 25px;
+		}
+
+		.dotnotification {
+			content: '';
+			position: absolute;
+			display: inline-block;
+			border-radius: 50%;
+			text-align: right;
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			margin-top: -2px;
+			background-color: red;
+		}
+
+		.hedi i:hover {
+			font-weight: bold;
+			color: transparent;
+			background-clip: text;
+			text-shadow: 0 2px 20px rgba(100, 0, 0, .4);
+			color: indianred;
+			/* Dark hover color */
+			transition: .1s;
+		}
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 130px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+			list-style-type: none;
+			/* Remove bullet points */
+			padding: 0;
+			/* Remove default padding */
+			margin: 0;
+			/* Remove default margin */
+		}
+
+
+		.logomenu {
+			background-clip: #fff;
+			text-decoration-color: none;
+			display: flex;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container_nav">
+		<div class="logo">
+			<div class="dropdown">
+				<img src="/d/imglogo/instagramLogo.png" alt="InstagramLogo" class="instaLogo" height="40px" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-content">
+					<li>
+						<div class="logomenu">
+							<a href="/html files/istfavorites.html">followers</a>
+							<i class="fas fa-user-friends"></i>
+						</div>
+					</li>
+					<li>
+						<div class="logomenu">
+							<a href="#">favorites</a>
+							<i class='far fa-star'></i>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="profile1">
+			<div class="hedi">
+				<a href="notification.html"><i id="coment" class="far fa-heart"><span class="dotnotification"></span></i></a>
+				<a href="/d/23.html"><i id="coment" class='fab fa-facebook-messenger'><span class="dotnotification"></span></i></a>
+			</div>
+		</div>
+	</div>
+	<i class="fa fa-reorder"></i>
+</body>
+
+</html>

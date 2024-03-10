@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<title>notification</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.container_nav {
+			background-color: #ffffff;
+			padding: 10px 20px;
+			border-bottom: 1px solid #efefef;
+			/* Lighter border */
+			top: 0;
+			left: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			/* Add shadow to taskbar */
+		}
+
+		.logo {
+			height: auto;
+			width: 80%;
+			position: relative;
+
+		}
+
+		.logo .instaLogo {
+			margin-top: -28px;
+			text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+			position: absolute;
+
+		}
+
+		#coment {
+			position: relative;
+			color: #333;
+			text-decoration: none;
+			font-size: 20px;
+			transition: .3s;
+			font-size: 25px;
+		}
+
+		.dotnotification {
+			content: '';
+			position: absolute;
+			display: inline-block;
+			border-radius: 50%;
+			text-align: ;
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			margin-top: -2px;
+			background-color: red;
+		}
+
+		.hedi i:hover {
+			font-weight: bold;
+			color: transparent;
+			background-clip: text;
+			text-shadow: 0 2px 20px rgba(100, 0, 0, .4);
+			color: indianred;
+			/* Dark hover color */
+			transition: .1s;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container_nav">
+		<div class="logo"><img src="/d/imglogo/instagramLogo.png" alt="InstagramLogo" class="instaLogo" height="50px"></div>
+		<div class="profile1">
+			<div class="hedi">
+				<a href="notification.html"><i id="coment" class="far fa-heart"><span class="dotnotification"></span></i></a>
+				<a href="/d/23.html"><i id="coment" class='fab fa-facebook-messenger'><span class=""></span></i></a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
