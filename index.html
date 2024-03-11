@@ -14,6 +14,7 @@
 			font-family: "Roboto", sans-serif;
 		}
 
+
 		.container {
 			width: 100%;
 			height: 100vh;
@@ -119,7 +120,7 @@
 			<div class="inputElement">
 				<input type="text" id="username" placeholder="Phone number, email, or username" class="inputTet" />
 				<input type="password" id="password" placeholder="Password" />
-				<input type="button" value="Log in" class="inputButton" onclick="checkCredentials()" />
+				<input type="button" value="Log in" class="inputButton" onclick="login()" />
 				<div class="line">
 					<span class="arrow"></span>
 					<span class="content">OR</span>
@@ -135,41 +136,38 @@
 			<p>Dont't have a account?<span><a href="/html files/frantpage.html">Sign Up</a></span></p>
 		</div>
 	</div>
-	<!--?php
-  $firstName = $_POST['firstName'];
-  $lastName  = $_POST["lastName"];
-  $gender  = $_POST["gender"];
-  $email = $_POST['email'];
-  $password = $_POST[ 'password'];
-  $number = $_POST['number'];
-  $conn = new mysqli('localhost',"root","", "test");
-  if($conn->connect_error){
-      die('Connection Failed : '.$conn->connect_error);
-  }else{
-  $stmt = $conn->prepare("insert into registration(firsthane, lastName, gender, email, password, number)
-  values(?, ?, ?, ?, ?,?)");
-     $stat->bind_param("sssssi", $firstName, $lastName, $gender, $email, $password, $number);
-  $stmt->execute();
-  echo "registration Siccessfully...";
-  $stmt->close();
-  $conn->close();
-  }
-  ?-->
-	<script>
-		function checkCredentials() {
-			// Get the username and password from input fields
-			var username = document.getElementById("username").value.trim();
-			var password = document.getElementById("password").value;
 
-			// Check if username and password match some predefined values
-			if (username === "Vishal" && password === "1234") {
-				// If credentials are correct, navigate to the next page
-				window.location.href = "frantpage.html";
-			} else {
-				// If credentials are incorrect, display an error message
-				alert("Invalid username or password. Please try again.");
-			}
-		}
+	<script>
+		
+		        // Define user credentials
+		        const users = [
+		            { username: "A", password: "1234" },
+		            { username: "user2", password: "password2" },
+		            { username: "user3", password: "password3" },
+		            { username: "user4", password: "password4" },
+		            { username: "user5", password: "password5" }
+		        ];
+		
+		        // Function to check username and password
+		        function login() {
+		            const username = document.getElementById("username").value;
+		            const password = document.getElementById("password").value;
+		
+		            // Check if user exists and password is correct
+		            const user = users.find(user => user.username === username && user.password === password);
+		            if (user) {
+		                // Redirect to the next page
+		                window.location.href = "frantpage.html";
+		            } else {
+		                // Display error message
+		                alert("Invalid username or password. Please try again.");
+		                document.getElementById("username").value = ""; // Clear username field
+		                document.getElementById("password").value = ""; // Clear password field
+		                document.getElementById("message").innerText = "Invalid username or password.";
+		                
+		            }
+		             
+		        }
 	</script>
 </body>
 
