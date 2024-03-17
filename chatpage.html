@@ -1,256 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>WhatsApp Messenger</title>
-    <style>
-            * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-            }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            width: 100%;
-            background-color: #075e54;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        main{
-        }
-        #chat-area {
-            flex: 4;
-            overflow-y: scroll;
-            background: cornsilk;
-            border-radius: 8px;
-            align-items: right;
-        }
-        .input-area {
-            display: flex;
-            padding: 10px;
-        }
-        input[type="text"] {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            
-        }
-        #send-button {
-            padding: 8px 20px;
-            margin-left: 10px;
-            background-color: #075e54;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-             /* Footer styles */
-        footer {
-            background-color: #ffffff;
-            padding: 5px 0px;
-            border-top: 1px solid #efefef; /* Lighter border */
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            flex: 4;
-            flex-direction: column;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Add shadow to taskbar */
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<title>WhatsApp Messenger</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-        footer a {
-            color: #333;
-            text-decoration: none;
-            font-size: 20px;
-            transition: .3s;
-        }
-        
-        /* Footer icon hover styles */
-        footer a i:hover {
-           font-weight: bold;
-           color: transparent;
-           background-clip:text;
-           text-shadow: 0 2px 20px rgba(100, 0, 0, .4);
-           color:  indianred; /* Dark hover color */
-           transition: .1s;
-        }
-        .chat-box{
-          
-          position: relative;
-          width: 100%; /*60+ 60 = 120px*/
-          height: calc(100% -120px);
-          padding: 10px;
-          overflow-y: auto;
-        }
-        
-        .message{
-          position: relative;
-          display: flex;
-          width: 100%;
-          margin-bottom: 1px;
-          
-          
-        }
-       .message .m-chet{
-          position: relative;
-          right: 0;
-          text-align: right;
-          max-width: 65%;
-          padding: 10px;
-          color: #fff;
-          background:  linear-gradient(165deg,purple,blue);
-          border-radius: 20px;
-          font-size: 0.9em;
-        }
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
 
-        .message .m-chet span
-        {
-          display: block;
-          margin-bottom: 0px;
-          font-size: 0.20em;
-          opacity: 1;
-        }
-        .message .m-chet span::before
-        {
-          display: block;
-          margin-top: px;
-          font-size: 0.10em;
-          opacity: 0.5;
-        }
-        .my_massage
-        {
-          
-          justify-content: flex-end;
-          
-        }
-        
-        .frnd_message
-        {
-          justify-content: flex-start;
-        }
-        .frnd_message .m-chet
-        {
-          background: #aaa;
-          color: #fff;
-          text-align: left;
-        }
-        .container_nav {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-bottom: 1px solid #efefef; /* Lighter border */
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Add shadow to taskbar */
-     
-        }
-        .logo {
-         height: auto;
-         width: 80%;
-         position: relative;
-      
-       }
-       .logo .instaLogo{
-         margin-top: -28px;
-         text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-         position: absolute;
-         
-       }
-       #coment{
-          color: #333;
-          text-decoration: none;
-          font-size: 20px;
-          transition: .3s;
-         font-size: 25px;
-       }
-       .hedi i:hover {
-           font-weight: bold;
-           color: transparent;
-           background-clip:text;
-           text-shadow: 0 2px 20px rgba(100, 0, 0, .4);
-            color:  indianred; /* Dark hover color */
-            transition: .1s;
-        }
-        
-    </style>
+		header {
+			width: 100%;
+			background-color: ;
+			color: #fff;
+			text-align: center;
+		}
+
+		main {}
+
+		#chat-area {
+			flex: 4;
+			overflow-y: scroll;
+			background: cornsilk;
+			border-radius: 8px;
+			align-items: right;
+		}
+
+		.input-area {
+			display: flex;
+			padding: 10px;
+		}
+
+		input[type="text"] {
+			flex: 1;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+
+		}
+
+		#send-button {
+			padding: 8px 20px;
+			margin-left: 10px;
+			background-color: #075e54;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		/* Footer styles */
+		footer {
+			background-color: #ffffff;
+			padding: 5px 0px;
+			border-top: 1px solid #efefef;
+			/* Lighter border */
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			flex: 4;
+			flex-direction: column;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			/* Add shadow to taskbar */
+		}
+
+		footer a {
+			color: #333;
+			text-decoration: none;
+			font-size: 20px;
+			transition: .3s;
+		}
+
+		/* Footer icon hover styles */
+		footer a i:hover {
+			font-weight: bold;
+			color: transparent;
+			background-clip: text;
+			text-shadow: 0 2px 20px rgba(100, 0, 0, .4);
+			color: indianred;
+			/* Dark hover color */
+			transition: .1s;
+		}
+
+		.chat-box {
+
+			position: relative;
+			width: 100%;
+			/*60+ 60 = 120px*/
+			height: calc(100% -120px);
+			padding: 10px;
+			overflow-y: auto;
+		}
+
+		.message {
+			position: relative;
+			display: flex;
+			width: 100%;
+			margin-bottom: 1px;
+
+
+		}
+
+		.message .m-chet {
+			position: relative;
+			right: 0;
+			text-align: right;
+			max-width: 65%;
+			padding: 10px;
+			color: #fff;
+			background: linear-gradient(165deg, purple, blue);
+			border-radius: 20px;
+			font-size: 0.9em;
+		}
+
+		.message .m-chet span {
+			display: block;
+			margin-bottom: 0px;
+			font-size: 0.20em;
+			opacity: 1;
+		}
+
+		.message .m-chet span::before {
+			display: block;
+			margin-top: px;
+			font-size: 0.10em;
+			opacity: 0.5;
+		}
+
+		.my_massage {
+
+			justify-content: flex-end;
+
+		}
+
+		.frnd_message {
+			justify-content: flex-start;
+		}
+
+		.frnd_message .m-chet {
+			background: #aaa;
+			color: #fff;
+			text-align: left;
+		}
+
+		.container_nav {
+			background-color: #ffffff;
+			padding: 10px 20px;
+			border-bottom: 1px solid #efefef;
+			/* Lighter border */
+			top: 0;
+			left: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			/* Add shadow to taskbar */
+
+		}
+
+		.logo {
+			height: auto;
+			width: 80%;
+			position: relative;
+
+		}
+
+		.logo .instaLogo {
+			margin-top: -28px;
+			text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+			position: absolute;
+
+		}
+
+		#coment {
+			color: #333;
+			text-decoration: none;
+			font-size: 20px;
+			transition: .3s;
+			font-size: 25px;
+		}
+
+		.hedi i:hover {
+			font-weight: bold;
+			color: transparent;
+			background-clip: text;
+			text-shadow: 0 2px 20px rgba(100, 0, 0, .4);
+			color: indianred;
+			/* Dark hover color */
+			transition: .1s;
+		}
+	</style>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: Arial, sans-serif;
+			}
+	
+			body {
+				background-color: #f4f4f4;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+	
+			.container {
+				background-color: #fff;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				width: 80%;
+				max-width: 600px;
+			}
+	
+			h1 {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+	
+			textarea {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 10px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				resize: vertical;
+			}
+	
+			button {
+				display: block;
+				width: 100%;
+				padding: 10px;
+				margin-top: 10px;
+				border: none;
+				border-radius: 4px;
+				background-color: #007bff;
+				color: #fff;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+	
+			button:hover {
+				background-color: #0056b3;
+			}
+	
+			button:last-of-type {
+				margin-top: 20px;
+				background-color: #28a745;
+			}
+	
+			button:last-of-type:hover {
+				background-color: #218838;
+			}
+		</style>
 </head>
-<body>
-    <header>
-      <div class="container_nav">
-        <div class="logo"><img src="/d/imglogo/instagramLogo.png" alt="InstagramLogo" class="instaLogo" height="50px"></div>
-        <div class="profile1">
-          <div class="hedi">
-            <a href="notification.html"><i id="coment" class="far fa-heart"></i></a>
-            <a href="/d/23.html"><i id="coment" class='fab fa-facebook-messenger'></i></a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      
-    <div class="chat-box" id="message"></div>
-    </main>
-    <footer>
 
-      <div class="input-area">
-        <input type="text" id="message-input" placeholder="Type your message...">
-        <button id="send-button" class="but">Send</button>
-      </div>
-      </div>
-    </footer>
-    <script>
-      // JavaScript code
-      document.addEventListener("DOMContentLoaded", function() {
-        const chatArea = document.getElementById("message");
-        const messageInput = document.getElementById("message-input");
-        const sendButton = document.getElementById("send-button");
-    
-        sendButton.addEventListener("click", function() {
-          const messageText = messageInput.value.trim();
-    
-          if (messageText !== "") {
-            var messageElement = document.createElement("div");
-            var messageElement2 = document.createElement("p");
-            messageElement2.classList.add("m-chet");
-    
-            if (messageText.toLowerCase().includes(".")) {
-              messageElement.classList.add("message", "frnd_message");
-              messageElement2.innerHTML = `<p>${messageText}<br><span>${getTime()}</span></p>`;
-            } else {
-              messageElement.classList.add("message", "my_massage");
-              messageElement2.innerHTML = `<p>${messageText}<br><span>${getTime()}</span></p>`;
-            }
-    
-            chatArea.appendChild(messageElement);
-            messageElement.appendChild(messageElement2);
-            chatArea.scrollTop = chatArea.scrollHeight; // Scroll to bottom
-            messageInput.value = "";
-          }
-        });
-      });
-    
-      function getTime() {
-        var date = new Date();
-        var hours = date.getHours().toString().padStart(2, '0');
-        var minutes = date.getMinutes().toString().padStart(2, '0');
-        return hours + ':' + minutes;
-      }
-    </script>
-    <script>
-     /* const keywordInput = document.getElementById("message-input");
+<body>
+	<header>
+		<div class="container_nav">
+			<div class="logo"><img src="/d/imglogo/instagramLogo.png" alt="InstagramLogo" class="instaLogo" height="50px"></div>
+			<div class="profile1">
+				<div class="hedi">
+					<a href="notification.html"><i id="coment" class="far fa-heart"></i></a>
+					<a href="/d/23.html"><i id="coment" class='fab fa-facebook-messenger'></i></a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+
+		<div class="chat-box" id="message"></div>
+	</main>
+	<footer>
+
+		<div class="input-area">
+			<input type="text" id="message-input" placeholder="Type your message..." >    
+			<button id="send-button" class="but">Send</button>
+					</div>
+					<div>
+						<button onclick="translateToEnglish()">Translate to English</button>
+					<button onclick="translateToGujarati()">Translate to Gujarati</button><br><br>
+					<button onclick="speakText()">Click to Speak Text</button>
+					<button onclick="startSpeechToText()">Click to Turn on Microphone</button>
+		
+					</div>
+		</div>
+	</footer>
+	<script>
+		// JavaScript code
+		document.addEventListener("DOMContentLoaded", function() {
+			const chatArea = document.getElementById("message");
+			const messageInput = document.getElementById("message-input");
+			const sendButton = document.getElementById("send-button");
+
+			sendButton.addEventListener("click", function() {
+				const messageText = messageInput.value.trim();
+
+				if (messageText !== "") {
+					var messageElement = document.createElement("div");
+					var messageElement2 = document.createElement("p");
+					messageElement2.classList.add("m-chet");
+
+					if (messageText.toLowerCase().includes(".")) {
+						messageElement.classList.add("message", "frnd_message");
+						messageElement2.innerHTML = `<p>${messageText}<br><span>${getTime()}</span></p>`;
+					} else {
+						messageElement.classList.add("message", "my_massage");
+						messageElement2.innerHTML = `<p>${messageText}<br><span>${getTime()}</span></p>`;
+					}
+
+					chatArea.appendChild(messageElement);
+					messageElement.appendChild(messageElement2);
+					chatArea.scrollTop = chatArea.scrollHeight; // Scroll to bottom
+					messageInput.value = "";
+				}
+			});
+		});
+
+		function getTime() {
+			var date = new Date();
+			var hours = date.getHours().toString().padStart(2, '0');
+			var minutes = date.getMinutes().toString().padStart(2, '0');
+			return hours + ':' + minutes;
+		}
+		
+		
+				function translateToEnglish() {
+					const inputText = document.getElementById("message-input").value;
+					const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=gu&tl=en&dt=t&q=" + encodeURI(inputText);
+		
+					fetchTranslation(url);
+				}
+		
+				function translateToGujarati() {
+					const inputText = document.getElementById("message-input").value;
+					const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=gu&dt=t&q=" + encodeURI(inputText);
+		
+					fetchTranslation(url);
+				}
+		
+				function fetchTranslation(url) {
+					fetch(url)
+						.then(response => response.json())
+						.then(data => {
+							const translatedText = data[0][0][0];
+							document.getElementById("message-input").value = translatedText;
+						})
+						.catch(error => {
+							console.error('Error:', error);
+						});
+				}
+		
+				function speakText() {
+					const inputText = document.getElementById("message-input").value;
+					textToSpeech(inputText);
+				}
+		
+				function textToSpeech(text) {
+					const utterance = new SpeechSynthesisUtterance(text);
+					speechSynthesis.speak(utterance);
+				}
+		
+				function startSpeechToText() {
+					const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+					recognition.lang = 'en-US';
+		
+					recognition.onresult = function(event) {
+						const transcript = event.results[0][0].transcript;
+						document.getElementById("inputOutputText").value = transcript;
+					}
+		
+					recognition.start();
+				}
+		
+	</script>
+	<script>
+		/* const keywordInput = document.getElementById("message-input");
       const checkKeywordButton = document.getElementById("send-button");
     
       // Function to check the entered keyword
@@ -286,8 +427,8 @@
     
       // Add click event listener to the button
       checkKeywordButton.addEventListener("click", checkKeyword);
+	</script>
 
-    </script>
-   
 </body>
+
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Translate web</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Arial, sans-serif;
+		}
+	
+		body {
+			background-color: #f4f4f4;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+	
+		.container {
+			background-color: #fff;
+			border-radius: 8px;
+			padding: 20px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			width: 80%;
+			max-width: 600px;
+		}
+	
+		h1 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+	
+		textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			resize: vertical;
+		}
+	
+		button {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			margin-top: 10px;
+			border: none;
+			border-radius: 4px;
+			background-color: #007bff;
+			color: #fff;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+	
+		button:hover {
+			background-color: #0056b3;
+		}
+	
+		button:last-of-type {
+			margin-top: 20px;
+			background-color: #28a745;
+		}
+	
+		button:last-of-type:hover {
+			background-color: #218838;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Simple Translate App</h1>
+		<textarea id="inputOutputText" rows="4" placeholder="Enter or view translated text"></textarea><br>
+		<button onclick="translateToEnglish()">Translate to English</button>
+		<button onclick="translateToGujarati()">Translate to Gujarati</button><br><br>
+			<button onclick="speakText()">Click to Speak Text</button>
+			<button onclick="startSpeechToText()">Click to Turn on Microphone</button>
+	</div>
+
+	<script>
+		function translateToEnglish() {
+			const inputText = document.getElementById("inputOutputText").value;
+			const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=gu&tl=en&dt=t&q=" + encodeURI(inputText);
+
+			fetchTranslation(url);
+		}
+
+		function translateToGujarati() {
+			const inputText = document.getElementById("inputOutputText").value;
+			const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=gu&dt=t&q=" + encodeURI(inputText);
+
+			fetchTranslation(url);
+		}
+
+		function fetchTranslation(url) {
+			fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					const translatedText = data[0][0][0];
+					document.getElementById("inputOutputText").value = translatedText;
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		}
+
+		function speakText() {
+			const inputText = document.getElementById("inputOutputText").value;
+			textToSpeech(inputText);
+		}
+
+		function textToSpeech(text) {
+			const utterance = new SpeechSynthesisUtterance(text);
+			speechSynthesis.speak(utterance);
+		}
+
+		function startSpeechToText() {
+			const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+			recognition.lang = 'en-US';
+
+			recognition.onresult = function(event) {
+				const transcript = event.results[0][0].transcript;
+				document.getElementById("inputOutputText").value = transcript;
+			}
+
+			recognition.start();
+		}
+	</script>
+
+</body>
+
+</html>

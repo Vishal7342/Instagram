@@ -5,10 +5,135 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+	<style type="text/css" media="all">
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		#verificationForm {
+			width: 300px;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+		
+		input[type="tel"],
+		input[type="text"] {
+			width: calc(100% - 10px);
+			padding: 10px;
+			margin-bottom: 15px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		
+		button {
+			width: 100%;
+			padding: 10px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		
+		button:hover {
+			background-color: #0056b3;
+		}
+		
+		.message {
+			text-align: center;
+			margin-top: 10px;
+		}
+		
+		.success {
+			color: #0d6e0d;
+		}
+		
+		.error {
+			color: #ff0000;
+		}
+	</style>
 </head>
 
 <body>
+    <h1>Phone Number Verification</h1>
+    <form id="verificationForm">
+    	<label for="phoneNumber">Enter Phone Number:</label>
+    	<input type="tel" id="phoneNumber" name="phoneNumber" autofocus required>
+    	<button type="button" onclick="sendOTP()">Send OTP</button>
+    	<br>
+    	<label for="otp">Enter OTP:</label>
+    	<input type="text" id="otp" name="otp" required>
+    	<button type="button" onclick="verifyOTP()">Verify OTP</button>
+    	<div id="timer"></div> <!-- Container for timer -->
+    	<div id="message"></div> <!-- Container for success/error message -->
+    </form>
 
+    <script>
+    	let otp;
+    	let timerInterval;
+
+    	function sendOTP() {
+    		otp = Math.floor(100000 + Math.random() * 900000);
+    		console.log("OTP sent: " + otp);
+
+    		// Set OTP expiration time to 3 minutes (adjust as needed)
+    		const otpExpirationTime = 1 * 60 * 1000; // 3 minutes in milliseconds
+
+    		// Start the countdown timer
+    		startTimer(otpExpirationTime);
+    	}
+
+    	function startTimer(duration) {
+    		const timerDisplay = document.getElementById("timer");
+
+    		let timer = duration / 1000;
+    		timerInterval = setInterval(function() {
+    			const minutes = Math.floor(timer / 60);
+    			const seconds = Math.floor(timer % 60);
+
+    			timerDisplay.textContent = "OTP expires in: " + minutes + "m " + seconds + "s";
+
+    			if (--timer < 0) {
+    				clearInterval(timerInterval);
+    				timerDisplay.textContent = "OTP expired";
+    			}
+    		}, 1000);
+    	}
+
+    	function verifyOTP() {
+    		clearInterval(timerInterval); // Stop the timer when OTP is verified
+    		const enteredOTP = document.getElementById("otp").value;
+    		if (enteredOTP === otp.toString()) {
+    			showMessage("OTP verified successfully!", "success");
+    			window.location.href = "frantpage.html";!
+    		} else {
+    			showMessage("OTP verification failed!", "error");
+    		}
+    	}
+
+    	function showMessage(message, type) {
+    		const messageDiv = document.getElementById("message");
+    		messageDiv.textContent = message;
+    		messageDiv.className = "message " + type;
+    	}
+    </script>
 </body>
 
 </html>

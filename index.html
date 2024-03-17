@@ -115,6 +115,7 @@
 </head>
 
 <body>
+<!--	<?php include("div.php")?>-->
 	<div class="container">
 		<div class="conter">
 			<div class="heder">
@@ -124,9 +125,9 @@
 				<span>Log in with Facebook</span>
 			</div>
 			<div class="inputElement">
-				<input type="text" id="username" placeholder="Phone number, email, or username" class="inputTet" />
-				<input type="password" id="password" placeholder="Password" />
-				<input type="button" value="Log in" class="inputButton" onclick="login()" />
+				<input type="text" id="username" placeholder="Phone number, email, or username" class="inputTet" required />
+				<input type="password" id="password" placeholder="Password" required/>
+				<input type="submit" value="Log in" class="inputButton" onclick="login()" />
 				<div class="line">
 					<span class="arrow"></span>
 					<span class="content">OR</span>
@@ -145,9 +146,9 @@
 		
 		        // Define user credentials
 		        const users = [
-		            { username: "A", password: "1234" },
-		            { username: "user2", password: "password2" },
-		            { username: "user3", password: "password3" },
+		            { username: "vishal", password: "1234" },
+		            { username: "sanju", password: "s1234" },
+		            { username: "karan", password: "k1234" },
 		            { username: "user4", password: "password4" },
 		            { username: "user5", password: "password5" }
 		        ];
@@ -164,7 +165,7 @@
 		                window.location.href = "frantpage.html";
 		            } else {
 		                // Display error message
-		                alert("Invalid username or password. Please try again.");
+		                //alert("Invalid username or password. Please try again.");
 		                document.getElementById("username").value = ""; // Clear username field
 		                document.getElementById("password").value = ""; // Clear password field
 		                document.getElementById("message").innerText = "Invalid username or password.";
