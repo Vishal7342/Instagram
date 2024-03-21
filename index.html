@@ -2,178 +2,219 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PrimeCart Login & Sign Up</title>
+    <style>
+      *{
+      	margin: 0;
+      	padding: 0;
+      	box-sizing: border-box;
+      }
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
 
-	<title>login page</title>
-	
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			font-family: "Roboto", sans-serif;
-		}
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: slide-in 0.5s ease-out;
+        }
 
+        @keyframes slide-in {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
-		.container {
-			width: 100%;
-			height: 100vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
+        @media (max-height: 450px) {
+        	body{
+        
+        		background-color: red;
+        	}
+        }
+        .container img {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
 
-		.center {
-			width: 350px;
-			border: 1px solid rgb(195, 195, 195);
-			border-radius: 4px;
-			padding: 20px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		}
+        .inputElement {
+            margin-bottom: 20px;
+        }
 
-		.center .header {
-			display: flex;
-			justify-content: center;
-			margin-bottom: 20px;
-		}
+        .inputElement input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-		.inputElement {
-			display: flex;
-			flex-direction: column;
-		}
+        .inputButton {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Twitter blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-		.inputElement input {
-			padding: 8px;
-			margin-bottom: 10px;
-			border: 1px solid #ccc;
-			border-radius: 4px;
-		}
+        .inputButton:hover {
+            background-color: #0056b3; /* Darker Twitter blue on hover */
+        }
 
-		.inputElement input:focus {
-			outline: none;
-			border-color: rgb(5, 117, 223);
-		}
+        .footer {
+            text-align: center;
+            color: #999;
+            margin-top: 20px;
+        }
 
-		.inputButton {
-			background-color: rgb(5, 117, 223);
-			color: white;
-			font-size: 12px;
-			padding: 8px;
-			border-radius: 4px;
-			border: none;
-			cursor: pointer;
-		}
+        .footer a {
+            color: #007bff; /* Twitter blue */
+            text-decoration: none;
+        }
 
-		.line {
-			display: flex;
-			align-items: center;
-			margin: 10px 0;
-		}
+        /* Different styles for login and sign up sections */
+        .signupSection {
+            display: none;
+        }
 
-		.arrow {
-			background-color: gray;
-			flex-grow: 1;
-			height: 1px;
-		}
+        .activeSection .signupSection {
+            display: block;
+        }
 
-		.content {
-			color: gray;
-			margin: 0 10px;
-		}
+        .activeSection .loginSection {
+            display: none;
+        }
 
-		.social__icon {
-			display: flex;
-			align-items: center;
-			padding: 10px;
-			background-color: #f0f0f0;
-			border-radius: 4px;
-			margin-bottom: 10px;
-		}
+        .switchSectionButton {
+            width: 100%;
+            padding: 10px;
+            background-color: #ddd;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-		.social__icon i {
-			margin-right: 0px;
-		}
-
-		.footer {
-			margin-top: 200px;
-			text-align: center;
-		}
-
-		.footer p {
-			color: gray;
-		}
-
-		.footer span {
-			color: rgb(5, 117, 223);
-			cursor: pointer;
-		}
-	</style>
+        .switchSectionButton:hover {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 
 <body>
-<!--	<?php include("div.php")?>-->
-	<div class="container">
-		<div class="conter">
-			<div class="heder">
-				<img src="/d/imglogo/instagramLogo.png" alt="InstagramLogo" class="instaLogo" height="80px">
-			</div>
-			<div class="social__icon"><i class="fab fa-facebook-square"></i>
-				<span>Log in with Facebook</span>
-			</div>
-			<div class="inputElement">
-				<input type="text" id="username" placeholder="Phone number, email, or username" class="inputTet" required />
-				<input type="password" id="password" placeholder="Password" required/>
-				<input type="submit" value="Log in" class="inputButton" onclick="login()" />
-				<div class="line">
-					<span class="arrow"></span>
-					<span class="content">OR</span>
-					<span class="arrow"></span>
-				</div>
-				
-				<div class="forgetPassword">Forget Password?</div>
-			</div>
-		</div>
-		<div class="footer">
-			<p>Dont't have a account?<span><a href="/sign up.html">Sign Up</a></span></p>
-		</div>
-	</div>
+    <div class="container activeSection">
+        <div class="heder">
+            <img src="/d/imglogo/instagramLogo.png" alt="InstagramLogo" class="instaLogo" height="80px">
+        </div>
+        <div class="loginSection">
+            <div class="inputElement">
+                <input type="text" id="loginUsername" placeholder="Username" />
+                <input type="password" id="loginPassword" placeholder="Password" required />
+                <input type="submit" value="Log in" class="inputButton" onclick="login()" />
+            </div>
+            <div class="footer">
+                <p>Don't have an account?<br /><a href="#" onclick="toggleSection(); return false;">Sign Up</a></p>
+            </div>
+        </div>
+        <div class="signupSection">
+            <div class="inputElement">
+                <input type="text" id="fullname" placeholder="Full Name" />
+                <input type="text" id="signupUsername" placeholder="Username" />
+                <input type="email" id="email" placeholder="Email" />
+                <input type="password" id="signupPassword" placeholder="Password" required />
+                <input type="password" id="confirm_password" placeholder="Confirm Password" required />
+                <input type="submit" value="Sign Up" class="inputButton" onclick="signup()" />
+            </div>
+            <div class="footer">
+                <p>Already have an account?<br /><a href="#" onclick="toggleSection(); return false;">Log In</a></p>
+            </div>
+        </div>
+    </div>
 
-	<script>
-		
-		        // Define user credentials
-		        const users = [
-		            { username: " ", password: " " },
-		            { username: "sanju", password: "s1234" },
-		            { username: "karan", password: "k1234" },
-		            { username: "user4", password: "password4" },
-		            { username: "", password: "" }
-		        ];
-		
-		        // Function to check username and password
-		        function login() {
-		            const username = document.getElementById("username").value;
-		            const password = document.getElementById("password").value;
-		
-		            // Check if user exists and password is correct
-		            const user = users.find(user => user.username === username && user.password === password);
-		            if (user) {
-		                // Redirect to the next page
-		                window.location.href = "/frantpage.html";
-		            } else {
-		                // Display error message
-		                //alert("Invalid username or password. Please try again.");
-		                document.getElementById("username").value = ""; // Clear username field
-		                document.getElementById("password").value = ""; // Clear password field
-		                document.getElementById("message").innerText = "Invalid username or password.";
-		                
-		            }
-		             
-		        }
-	</script>
+    <script>
+        // Toggle between login and sign up sections
+        function toggleSection() {
+            const container = document.querySelector('.container');
+            container.classList.toggle('activeSection');
+        }
+
+        // Array to store user information
+        const users = [];
+
+        // Function to validate password match
+        function validatePassword() {
+            const password = document.getElementById("signupPassword").value;
+            const confirm_password = document.getElementById("confirm_password").value;
+            if (password !== confirm_password) {
+                document.getElementById("confirm_password").setCustomValidity("Passwords don't match");
+            } else {
+                document.getElementById("confirm_password").setCustomValidity('');
+            }
+        }
+
+        // Function to sign up
+        function signup() {
+            const fullname = document.getElementById("fullname").value;
+            const username = document.getElementById("signupUsername").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("signupPassword").value;
+
+            // Check if username or email already exists
+            const existingUser = users.find(user => user.username === username || user.email === email);
+            if (existingUser) {
+                alert("Username or email already exists. Please choose another.");
+            } else {
+                // Add new user to the array
+                users.push({ fullname, username, email, password });
+
+                alert("Sign up successful! You can now log in.");
+
+                // Clear sign-up fields
+                document.getElementById("fullname").value = "";
+                document.getElementById("signupUsername").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("signupPassword").value = "";
+                document.getElementById("confirm_password").value = "";
+
+                // Switch to login section
+                toggleSection();
+            }
+        }
+
+        // Function to log in
+        function login() {
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+
+            // Check if the user exists and the password matches
+            const user = users.find(user => user.username === username && user.password === password);
+            if (user) {
+                alert("Login successful!");
+                window.location.href = "/instagram.html";
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
 </body>
 
 </html>
